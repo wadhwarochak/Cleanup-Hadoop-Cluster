@@ -1,6 +1,5 @@
 # ============================================================
 # Author: Rochak Wadhwa
-# Team: Data Engineering under Vinod Boga
 # Purpose of this sctipt: Clean logs and not needed old files from HDFS of HDP node
 # This script can be executed using hdfs user
 # ============================================================
