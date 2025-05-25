@@ -1,39 +1,22 @@
 # ============================================================
-
 # Author: Rochak Wadhwa
-
 # Team: Data Engineering under Vinod Boga
-
 # Purpose of this sctipt: Clean logs and not needed old files from HDFS of HDP node
-
 # This script can be executed using hdfs user
-
 # ============================================================
 
 
 
 import os
-
 import time
-
 import getpass as gt
-
 import subprocess
-
 from datetime import datetime
-
 now = datetime.now()
-
 from dateutil.relativedelta import relativedelta
-
 import calendar
-
 import datetime as dt
-
 from datetime import date
-
-
-
 
 
 def clearAppLogs():
