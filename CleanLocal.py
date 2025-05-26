@@ -19,145 +19,76 @@ import stat
 # ============================================================
 # List for deletion of log files ending like out.1 or log.7
 loc01 = "/var/log/ambari-agent/"
-
 loc02 = "/var/log/ambari-infra-solr/"
-
 loc03 = "/var/log/ambari-metrics-collector/"
-
 loc04 = "/var/log/ambari-metrics-monitor/"
-
 loc05 = "/var/log/ambari-server/"
-
 loc06 = "/var/log/atlas/"
-
 loc07 = "/var/log/audit/"
-
 loc08 = "/var/log/hadoop/hdfs/"
-
 loc09 = "/var/log/hadoop-mapreduce/mapred/"
-
 loc10 = "/var/log/hadoop-yarn/embedded-yarn-ats-hbase/"
-
 loc11 = "/var/log/hadoop-yarn/yarn/"
-
 loc12 = "/var/log/hbase/"
-
 loc13 = "/var/log/hst/"
-
 loc14 = "/var/log/hive/"
-
 loc15 = "/var/log/smartsense-activity/"
-
 loc16 = "/var/log/spark2/"
-
 loc17 = "/var/log/zookeeper/"
-
-
 
 local_locations = [loc01, loc02, loc03, loc04, loc05, loc06, loc07, loc08, loc09, loc10, loc11, loc12, loc13, loc14, loc14, loc15, loc16, loc17]
 
 
-
-
-
 def deleteDaysOldLogsWithPattern():
-
 	print(" ")
-
 	deleteDaysOldDefinition("/var/log/",50,".log-202","log","202")
-
 	deleteDaysOldDefinition("/var/log/ambari-metrics-collector/",50,"gc.log-202","202",".log-")
-
 	deleteDaysOldDefinition("/var/log/atlas/",50,"audit.log","audit","202")
-
 	deleteDaysOldDefinition("/var/log/aws/codedeploy-agent/",50,"codedeploy-agent.202",".log",".202")
-
 	deleteDaysOldDefinition("/var/log/hadoop/hdfs/",50,"gc.log-202","gc.log","-202")
-
 	deleteDaysOldDefinition("/var/log/hadoop/hdfs/audit/solr/spool/archive/",50,"202","spool_hdfs","log")
-
 	deleteDaysOldDefinition("/var/log/hadoop/hdfs/audit/hdfs/spool/archive/",50,"202","spool_hdfs","log")
-
 	deleteDaysOldDefinition("/var/log/hadoop/hdfs/",50,"gc.log-202","202","gc")
-
 	deleteDaysOldDefinition("/var/log/hadoop/hdfs/",50,"hdfs-audit.log.202","202",".log")
-
 	deleteDaysOldDefinition("/var/log/hadoop-yarn/yarn/",50,"nm-audit.log.202","202",".log.")
-
 	deleteDaysOldDefinition("/var/log/hadoop-yarn/yarn/",50,"rm-audit.log.202","202",".log.")
-
 	deleteDaysOldDefinition("/var/log/hbase/",50,"gc.log-202","gc.log","202")
-
 	deleteDaysOldDefinition("/var/log/hbase/audit/hdfs/spool/",50,"spool_hbaseRegional_202","spool","202")
-
 	deleteDaysOldDefinition("/var/log/hbase/audit/hdfs/spool/",50,"spool_hbaseRegional_202","202",".log")
-
 	deleteDaysOldDefinition("/var/log/hive/",50,"hive","202",".current")
-
 	deleteDaysOldDefinition("/var/log/kafka/",50,"log-cleaner.log.202","202","log")
-
 	deleteDaysOldDefinition("/var/log/ranger/kms/",50,"kms.log.202",".log","202")
-
 	deleteDaysOldDefinition("/var/log/knox/",50,"gateway",".log.202",".log.")
-
 	deleteDaysOldDefinition("/var/log/nifi-registry/",50,".log.202",".202","log.")
-
 	deleteDaysOldDefinition("/var/log/nifi-registry/",50,"202",".log","nifi-registry-")
-
 	deleteDaysOldDefinition("/var/log/ranger/admin/",50,"xa_portal.log.202","log","202")
-
 	deleteDaysOldDefinition("/var/log/ranger/admin/",50,"access_log.202","log","202")
-
 	deleteDaysOldDefinition("/var/log/ranger/kms/",50,"access_log.202","log","202")
-
 	deleteDaysOldDefinition("/var/log/ranger/tagsync/",50,"tagsync.log.202","log","202")
-
 	deleteDaysOldDefinition("/var/log/ranger/usersync/",50,".log.202","202",".log.")
 
 	
 
 	
-
-
-
 def deleteMoreLogs():
-
 	print("==== ==== ==== ==== ==== ==== ==== ==== ==== ====")
-
 	print("Deleting old log files from specific locations, if exist")
-
 	time.sleep(2)
-
 	print("---- Checking and deleting old Hive logs")
-
 	os.system("rm -rf /var/log/hive/hive*202*.gz")
-
 	time.sleep(2)
-
 	print("---- Checking and deleting old kafka Logs")
-
 	os.system("rm -rf /var/log/kafka/controller.log.202*")
-
 	os.system("rm -rf /var/log/kafka/server.log.202*")
-
 	time.sleep(2)
-
 	print("---- Checking and deleting old nifi logs")
-
 	os.system("rm -rf /var/log/nifi/nifi-bootstrap_202*")
-
 	os.system("rm -rf /var/log/nifi/nifi-app_202*")
-
 	os.system("rm -rf /var/log/nifi/nifi-user_202*")
-
 	time.sleep(2)
-
 	print("==== ==== ==== ==== ==== ==== ==== ==== ==== ====")
-
 	print(" ")
-
 	print(" ")
-
 	time.sleep(2)
 
 # ============================================================
