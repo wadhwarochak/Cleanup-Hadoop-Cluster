@@ -19,47 +19,26 @@ from datetime import date
 
 
 def clearAppLogs():
-
         print(" ")
-
         print(" ")
-
         print("--- --- --- --- --- --- --- --- --- --- --- ---")
-
         print("Clearing old logs from app-logs")
-
         print(" ")
-
         hdfsdir = '/app-logs/'
-
         try:
-
                 proc = subprocess.Popen(["hadoop fs -ls " + hdfsdir + "| tr -s ' ' | cut -d' ' -f8"], stdout=subprocess.PIPE, shell=True)
-
                 (out, err) = proc.communicate()
-
                 for byte_line in out.splitlines():
-
                         path = byte_line.decode()
-
                         #time.sleep(0.3)
-
                         if path:
-
                                 path = path + "/logs/application_*"
-
                                 #print(" ")
-
                                 #print("--- --- --- --- --- --- --- --- --- --- --- ---")
-
                                 #print("Deleting files at " + path)
-
                                 os.system("hdfs dfs -rm -R -skipTrash " + path)
-
         except Exception as error:
-
                 print(error)
-
 
 
 
