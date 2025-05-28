@@ -120,48 +120,26 @@ def deleteLogOutDotNumber(local_locations):
 
 
 def deleteDaysOldDefinition(location,n,pattern1,pattern2,pattern3):
-
 	if os.path.isdir(location):
-
 		print(" ")
-
 		print("----- ----- ---- -----")
-
 		#print(" ")
-
 		time.sleep(0.3)
-
 		print("Checking " + location)
-
 		files = [ f for f in os.listdir(location) if os.path.isfile(os.path.join(location,f)) ]
-
 		for f in files:
-
 			if pattern1 in f and pattern2 in f and pattern3 in f:
-
 				FileFullPath = location + f
-
 				#print("Processing " + FileFullPath)
-
 				fileStats = os.stat(FileFullPath)
-
 				last_access = fileStats[stat.ST_ATIME]
-
 				now = time.time()
-
 				days = (now - last_access) / (60 * 60 * 24)
-
 				if days > n :
-
 					if "log" in FileFullPath and "202" in FileFullPath:
-
 						print("Deleting " + FileFullPath + " -- last accessed: " + str(int(days)) + " days before")
-
 						os.system("rm -rf " + FileFullPath)
-
 						time.sleep(0.1)
-
-
 
 
 
