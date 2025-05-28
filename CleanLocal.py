@@ -92,51 +92,31 @@ def deleteMoreLogs():
 	time.sleep(2)
 
 # ============================================================
-
 # defining functions to be used in main section
 
 
 
 def deleteLogOutDotNumber(local_locations):
-
 	for location in local_locations:
-
 		if os.path.isdir(location):
-
 			print(" ")
-
 			print("---- ----- ----- -----")
-
 			time.sleep(0.2)
-
 			print("Checking " + location)
-
 			files = [ f for f in os.listdir(location) if os.path.isfile(os.path.join(location,f)) ]
-
 			flag = "false"
-
 			for f in files:
-
 				if (f.count('.') > 1):
-
 					if ((f.split('.')[-2] in ["out","log","err"]) and f.split('.')[-1].isdigit()):
-
 						print("Deleting " + location + f)
-
 						os.system("rm -rf " + location + f)
-
 						time.sleep(0.2)
-
 						flag = "true"
 
 			if flag == "false":
-
 				time.sleep(0.2)
-
 				print("No old file found at this location")
-
 				time.sleep(0.5)
-
 
 
 def deleteDaysOldDefinition(location,n,pattern1,pattern2,pattern3):
