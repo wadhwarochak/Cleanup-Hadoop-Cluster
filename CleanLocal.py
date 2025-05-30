@@ -144,95 +144,45 @@ def deleteDaysOldDefinition(location,n,pattern1,pattern2,pattern3):
 
 
 if __name__ == '__main__':
-
 	try:
-
 		print(" ")
-
 		print(" ")
-
 		user = gt.getuser()
-
 		rootUser = 'root'
-
 		if user == rootUser:
-
 			print("==== ==== ==== ==== ==== ==== ==== ==== ==== ====")
-
-
-
 			time.sleep(0.5)
-
 			print('Deleting old logs from various locations')
-
 			time.sleep(0.5)
-
 			print(" ")
-
 			print(" ")
-
 			print("==== ==== ==== ==== ==== ==== ==== ==== ==== ====")
-
 			print("Checking locations for files like .log.1 or .err.7 etc")
-
 			deleteLogOutDotNumber(local_locations)
-
 			time.sleep(0.5)
-
 			print(" ")
-
 			print(" ")
-
 			print("==== ==== ==== ==== ==== ==== ==== ==== ==== ====")
-
 			time.sleep(0.5)
-
 			print("Checking location for old files and not touched recently")
-
 			deleteDaysOldLogsWithPattern()
-
 			print(" ")
-
 			#print(" ")
-
 			deleteMoreLogs()
-
 			time.sleep(0.5)
-
 			print("==== ==== ==== ==== ==== ==== ==== ==== ==== ====")
-
 			print("==== ==== ==== ==== ==== ==== ==== ==== ==== ====")
-
-
-
 			time.sleep(0.5)
-
 			print(" ")
-
 			time.sleep(1)
-
 			print('Logs from various locations have been deleted')
-
 			time.sleep(1)
-
 			print(" ")
-
 			print(" ")
-
 			print(" ")
-
 		else:
-
 			print("==== ==== ==== ==== ==== ==== ==== ==== ==== ====")
-
 			print('Please use this script with root user')
-
 			print("==== ==== ==== ==== ==== ==== ==== ==== ==== ====")
-
-			
-
-
-
 	except Exception as error:
-
 		print(error)
