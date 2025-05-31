@@ -142,43 +142,24 @@ def remove_old_files_hive_llap_tar_gz():
 
 
 def PurgeRanger():
-
         print(" ")
-
         print(" ")
-
         print("--- --- --- --- --- --- --- --- --- --- --- ---")
-
         print("Deleting old folders from /ranger/audit/hdfs/")
-
         for i in range(3, 10):
-
                 month_value = date.today() - relativedelta(months=i)
-
                 month_str = (str((month_value)).replace('-', '')[:-2])
-
                 command1 = "hdfs dfs -rm -R -skipTrash /ranger/audit/hdfs/" + str(month_str) + "*"
-
                 os.system(command1)
-
         print(" ")
-
         print(" ")
-
         print("--- --- --- --- --- --- --- --- --- --- --- ---")
-
         print("Deleting old folders from /ranger/audit/hiveServer2/")
-
         for i in range(3, 10):
-
                 month_value = date.today() - relativedelta(months=i)
-
                 month_str = (str((month_value)).replace('-', '')[:-2])
-
                 command2 = "hdfs dfs -rm -R -skipTrash /ranger/audit/hiveServer2/" + str(month_str) + "*"
-
                 os.system(command2)
-
 
 
 if __name__ == '__main__':
